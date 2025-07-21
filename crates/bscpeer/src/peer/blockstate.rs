@@ -157,36 +157,14 @@ impl BlockStateManager {
     }
 
     /// 处理收到的区块
-    pub fn process_received_block(
-        &self,
-        block_number: u64,
-    ) {
+    pub fn process_received_block(&self, block_number: u64) {
         {
             let mut pending = self.pending_requests.lock().unwrap();
             pending.remove(&block_number);
         }
 
         self.add_received_block(block_number);
-
-        // let current_height = self.get_current_height();
-
-        // if block_number == current_height + 1 {
-        //     self.update_height(block_number);
-        //     info!(
-        //         block_number = block_number,
-        //         "receive continuous block, height updated"
-        //     );
-
-        //     self.request_next_block(network_handle);
-        // } else if block_number > current_height + 1 {
-        //     self.check_and_request_missing_blocks(block_number, network_handle);
-        // } else {
-        //     info!(
-        //         block_number = block_number,
-        //         current_height = current_height,
-        //         "receive old block or duplicate block"
-        //     );
-        // }
+        self.update_height(block_number);
     }
 
     pub fn process_block_hashes(
