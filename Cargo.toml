@@ -1,0 +1,89 @@
+[workspace]
+members = ["crates/bscpeer"]
+
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+
+[workspace.dependencies]
+reth-chainspec = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-chainspec", tag = "v1.5.1" }
+reth-discv4 = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-discv4", tag = "v1.5.1" }
+reth-engine-primitives = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-engine-primitives", tag = "v1.5.1" }
+reth-eth-wire = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-eth-wire", tag = "v1.5.1" }
+reth-eth-wire-types = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-eth-wire-types", tag = "v1.5.1" }
+reth-ethereum-forks = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-ethereum-forks", tag = "v1.5.1" }
+reth-network = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-network", tag = "v1.5.1" }
+reth-network-api = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-network-api", tag = "v1.5.1" }
+reth-network-peers = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-network-peers", tag = "v1.5.1" }
+reth-payload-primitives = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-payload-primitives", tag = "v1.5.1" }
+reth-primitives = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-primitives", tag = "v1.5.1" }
+reth-primitives-traits = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-primitives-traits", tag = "v1.5.1" }
+reth-provider = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-provider", tag = "v1.5.1" }
+reth-tracing = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-tracing", tag = "v1.5.1" }
+reth-node-ethereum = { git = "https://github.com/paradigmxyz/reth.git", package = "reth-node-ethereum", tag = "v1.5.1" }
+
+# tokio
+tokio = { version = "1.44.2", default-features = false }
+tokio-stream = "0.1.11"
+tokio-tungstenite = "0.26.2"
+tokio-util = { version = "0.7.4", features = ["codec"] }
+
+# async
+async-stream = "0.3"
+async-trait = "0.1.68"
+futures = "0.3"
+futures-core = "0.3"
+futures-util = { version = "0.3", default-features = false }
+
+# crypto
+enr = { version = "0.13", default-features = false }
+k256 = { version = "0.13", default-features = false, features = ["ecdsa"] }
+secp256k1 = { version = "0.30", default-features = false, features = ["global-context", "recovery"] }
+# rand 8 for secp256k1
+rand_08 = { package = "rand", version = "0.8" }
+
+# eth
+alloy-primitives = { version = "1.2.0", default-features = false, features = ["map-foldhash"] }
+alloy-rlp = { version = "0.3.10", default-features = false, features = ["core-net"] }
+alloy-hardforks = "0.2.7"
+
+alloy-consensus = { version = "1.0.22", default-features = false }
+alloy-contract = { version = "1.0.22", default-features = false }
+alloy-eips = { version = "1.0.22", default-features = false }
+alloy-genesis = { version = "1.0.22", default-features = false }
+alloy-json-rpc = { version = "1.0.22", default-features = false }
+alloy-network = { version = "1.0.22", default-features = false }
+alloy-network-primitives = { version = "1.0.22", default-features = false }
+alloy-provider = { version = "1.0.22", features = ["reqwest"], default-features = false }
+alloy-pubsub = { version = "1.0.22", default-features = false }
+alloy-rpc-client = { version = "1.0.22", default-features = false }
+alloy-rpc-types = { version = "1.0.22", features = ["eth"], default-features = false }
+alloy-rpc-types-admin = { version = "1.0.22", default-features = false }
+alloy-rpc-types-anvil = { version = "1.0.22", default-features = false }
+alloy-rpc-types-beacon = { version = "1.0.22", default-features = false }
+alloy-rpc-types-debug = { version = "1.0.22", default-features = false }
+alloy-rpc-types-engine = { version = "1.0.22", default-features = false }
+alloy-rpc-types-eth = { version = "1.0.22", default-features = false }
+alloy-rpc-types-mev = { version = "1.0.22", default-features = false }
+alloy-rpc-types-trace = { version = "1.0.22", default-features = false }
+alloy-rpc-types-txpool = { version = "1.0.22", default-features = false }
+alloy-serde = { version = "1.0.22", default-features = false }
+alloy-signer = { version = "1.0.22", default-features = false }
+alloy-signer-local = { version = "1.0.22", default-features = false }
+alloy-transport = { version = "1.0.22" }
+alloy-transport-http = { version = "1.0.22", features = ["reqwest-rustls-tls"], default-features = false }
+alloy-transport-ipc = { version = "1.0.22", default-features = false }
+alloy-transport-ws = { version = "1.0.22", default-features = false }
+
+# misc
+bytes = { version = "1.5", default-features = false }
+derive_more = { version = "2", default-features = false, features = ["full"] }
+thiserror = { version = "2.0.0", default-features = false }
+tracing = { version = "0.1.0", default-features = false }
+tracing-appender = "0.2"
+serde = { version = "1.0", default-features = false }
+serde_json = { version = "1.0", default-features = false, features = ["alloc"] }
+serde_with = { version = "3", default-features = false, features = ["macros"] }
+
