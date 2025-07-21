@@ -1,2 +1,3 @@
-pub mod chainspec;
-pub mod handshake;
+pub mod chain_config;
+pub mod peer;
+pub mod primitives;

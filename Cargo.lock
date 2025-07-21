@@ -1601,6 +1601,9 @@ dependencies = [
 name = "bscpeer"
 version = "0.1.0"
 dependencies = [
+ "alloy-chains",
+ "alloy-consensus",
+ "alloy-eips",
  "alloy-primitives",
  "alloy-rlp",
  "alloy-rpc-types",
@@ -1613,6 +1616,7 @@ dependencies = [
  "reth-eth-wire",
  "reth-eth-wire-types",
  "reth-ethereum-forks",
+ "reth-ethereum-primitives",
  "reth-network",
  "reth-network-api",
  "reth-network-peers",
@@ -1621,10 +1625,12 @@ dependencies = [
  "reth-primitives",
  "reth-primitives-traits",
  "reth-provider",
+ "reth-revm",
  "reth-tracing",
  "secp256k1 0.30.0",
  "serde",
  "serde_json",
+ "serde_with",
  "thiserror 2.0.12",
  "tokio",
  "tokio-stream",
